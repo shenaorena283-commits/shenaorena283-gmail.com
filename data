@@ -1,0 +1,54 @@
+
+const portfolioData = {
+    name: "Shena S. Orena",
+    course: "BS Information Technology",
+    school: "Nueva Vizcaya State University - Bambang Campus",
+    address: "Kasibu, Nueva Vizcaya",
+    email: "shenaorena283@gmail.com",
+    phone: "+63 9631590585",
+    photo: "https://placehold.co/400x400/10243c/38bdf8?text=Your+Photo",
+
+    about: "Hello! I am Shena S. Orena, a student who enjoys learning new things, exploring technology, and improving my skills. I am interested in designing, creating websites, and working with computers.",
+
+    education: [
+        {
+            level: "Elementary",
+            school: "Cordon Elementary School",
+            achievement: "Athlete of the Year"
+        },
+        {
+            level: "Secondary",
+            school: "Kongkong Valley National High School",
+            achievement: "Athlete of the Year"
+        },
+        {
+            level: "Tertiary",
+            school: "Nueva Vizcaya State University",
+            achievement: "Bachelor of Science in Information Technology"
+        }
+    ],
+
+    experience: [
+        {
+            title: "Experience or Part-time Work",
+            description: "Add your work experience, responsibilities, and lessons learned here."
+        },
+        {
+            title: "School Project",
+            description: "Add your school projects, activities, and group work here."
+        }
+    ],
+
+    skills: [
+        "HTML",
+        "CSS",
+        "Java",
+        "Database",
+        "Teamwork",
+        "Communication",
+        "Creative Design"
+    ],
+
+    theme: "Blue Tech",
+    timezone: "Asia/Manila"
+};
