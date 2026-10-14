@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shena S. Orena | Portfolio</title>
+
+<style>
+:root {
+    --bg: #071426;
+    --card: #10243c;
+    --text: #f1f7ff;
+    --muted: #a9bed6;
+    --blue: #38bdf8;
+    --border: #234463;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    transition: 0.3s;
+}
+
+body.light {
+    --bg: #edf6ff;
+    --card: #ffffff;
+    --text: #10243c;
+    --muted: #52677f;
+    --blue: #087db5;
+    --border: #c6dced;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: var(--blue);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+button, .button {
+    background: var(--blue);
+    color: #061323;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+button:hover, .button:hover {
+    opacity: 0.8;
+}
+
+.hero {
+    min-height: 500px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    background:
+        radial-gradient(ellipse at 85% 20%, #124c79 0%, transparent 40%),
+        linear-gradient(135deg, #071426, #0b2341, #071426);
+    border-bottom: 1px solid var(--border);
+}
+
+body.light .hero {
+    background:
+        radial-gradient(ellipse at 85% 20%, #b9e7ff 0%, transparent 40%),
+        linear-gradient(135deg, #edf6ff, #d8edff, #edf6ff);
+}
+
+.hero-content {
+    flex: 1 1 300px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+.hero h1 span, h2 span {
+    color: var(--blue);
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 8px 0;
+}
+
+.profile {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 4px solid var(--blue);
+    background: var(--card);
+    object-fit: cover;
+    box-shadow: 0 0 35px #38bdf855;
+}
+
+.profile-area {
+    text-align: center;
+}
+
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 70px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--blue);
+    margin-bottom: 8px;
+}
+
+.card p, .card li {
+    color: var(--muted);
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.info {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.info p {
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skill {
+    background: var(--card);
+    border: 1px solid var(--blue);
+    border-radius: 30px;
+    padding: 8px 16px;
+}
+
+.tools {
+    text-align: center;
+    padding: 25px;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.status div {
+    border: 1px solid var(--border);
+    padding: 12px 18px;
+    border-radius: 10px;
+    min-width: 150px;
+}
+
+.status small {
+    display: block;
+    color: var(--muted);
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 25px;
+    border-top: 1px solid var(--border);
+}
+
+input[type="file"] {
+    max-width: 100%;
+    margin: 12px 0;
+    color: var(--text);
+}
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        text-align: center;
+        justify-content: center;
+        padding: 55px 6%;
+    }
+
+    .profile-area {
+        margin: auto;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+}
+
+@media print {
+    header, .tools, .upload-controls, .no-print {
+        display: none !important;
+    }
+
+    body, .hero, .card {
+        background: white !important;
+        color: black !important;
+    }
+
+    section {
+        padding: 25px;
+        break-inside: avoid;
+    }
+
+    .hero p, .card p, .card li, footer {
+        color: #333 !important;
+    }
+
+    .card {
+        border: 1px solid #aaa;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">💙 Shena's Portfolio</div>
+    <img src="image.jpg" alt="Profile">
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button onclick="toggleTheme()">☾ Theme</button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="typing-container">
+        <p>🎓 BS Information Technology • NVSU Bambang</p>
+        <h1> Hello, I'm <span>Shena S. Orena</span></h1>
+        <p>
+            A student who enjoys learning technology, creating websites,
+            and improving computer skills.
+        </p>
+        <p>📍 Kasibu, Nueva Vizcaya</p>
+        <p>✉️ shenaorena283@gmail.com</p>
+
+        <a href="#about" class="button">About Me</a>
+        <button onclick="window.print()">▣ Save as PDF</button>
+    </div>
+
+    <div class="profile-area">
+        <img
+            src="image.jpg.jpg"
+            alt="image.jpg.jpg"
+            class="profile"
+            id="profileImage"
+        >
+        <div class="upload-controls">
+            <label for="photoInput"> Future Professional IT</label><br>
+            <input type="file" id="photoInput" accept="image/*">
+        </div>
+    </div>
+</section>
+
+<div class="tools">
+    <h3>💻 My Portfolio Dashboard</h3>
+    <div class="status">
+        <div>
+            <small>◷ Live Time</small>
+            <strong id="clock">Loading...</strong>
+            <small>Bambang</small>
+        </div>
+        <div>
+            <small>▦ Date</small>
+            <strong id="date">Loading...</strong>
+            <small id="day"></small>
+        </div>
+        <div>
+            <small>✿ Theme</small>
+            <strong id="themeName">Blue Tech</strong>
+            <small>Personal Style</small>
+        </div>
+    </div>
+</div>
+
+<section id="about">
+    <h2 class="section-title">🌷 About <span>Me</span></h2>
+    <div class="info">
+        <p>
+            Hello! I am <strong>Shena S. Orena</strong>, a student who enjoys
+            learning new things, exploring technology, and improving my skills.
+            I am interested in designing, creating websites, and working with
+            computers. I want to gain more knowledge and experience in
+            Information Technology.
+        </p>
+        <p>☎️ +63 9631590585</p>
+        <p>✉️ shenaorena283@gmail.com</p>
+    </div>
+</section>
+
+<section id="education">
+    <h2 class="section-title">🎓 My <span>Education</span></h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Elementary</h3>
+            <p>Cordon Elementary School</p>
+            <p>🏆 Athlete of the Year</p>
+        </div>
+
+        <div class="card">
+            <h3>Secondary</h3>
+            <p>Kongkong Valley National High School</p>
+            <p>🏆 Athlete of the Year</p>
+        </div>
+
+        <div class="card">
+            <h3>Tertiary</h3>
+            <p>Nueva Vizcaya State University</p>
+            <p>🎓 Bachelor of Science in Information Technology</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <h2 class="section-title">💼 My <span>Experience</span></h2>
+    <div class="grid">
+        <div class="card">
+            <h3> Farming</h3>
+            <p>
+                Every weekend i help my parents in our farm. I learned how to plant crops, take care of animals, and manage the farm.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>School Projects</h3>
+            <p>
+                I have worked on various school projects, including website development, database management, and software applications. These experiences have helped me improve my technical skills and teamwork abilities.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">✨ Skills & <span>Interests</span></h2>
+    <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Java</span>
+        <span class="skill">Database</span>
+        <span class="skill">Teamwork</span>
+        <span class="skill">Communication</span>
+        <span class="skill">Creative Design</span>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">✉️ Contact <span>Me</span></h2>
+    <div class="info card">
+        <p>Feel free to contact me through the details below.</p>
+        <p>📍 Kasibu, Nueva Vizcaya</p>
+        <p>☎️ +63 9631590585</p>
+        <p>✉️ shenaorena283@gmail.com</p>
+        <a class="button" href="mailto:shenaorena283@gmail.com">
+            Send Me an Email
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    Made with 💙 by Shena S. Orena
+    <p>Personal Portfolio • Blue Tech Theme</p>
+</footer>
+
+<script>
+// Live time and date in the Philippines
+function updateClock() {
+    const now = new Date();
+
+    document.getElementById("clock").textContent =
+        now.toLocaleTimeString("en-US", {
+            timeZone: "Asia/Manila",
+            hour: "numeric",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+
+    document.getElementById("date").textContent =
+        now.toLocaleDateString("en-US", {
+            timeZone: "Asia/Manila",
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        });
+
+    document.getElementById("day").textContent =
+        now.toLocaleDateString("en-US", {
+            timeZone: "Asia/Manila",
+            weekday: "long"
+        });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+// Switch between dark and light themes
+function toggleTheme() {
+    document.body.classList.toggle("light");
+
+    const isLight = document.body.classList.contains("light");
+
+    document.getElementById("themeName").textContent =
+        isLight ? "Light Blue" : "Blue Tech";
+}
+
+// Upload your own profile photo
+document.getElementById("photoInput").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+
+    if (file && file.type.startsWith("image/")) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            document.getElementById("profileImage").src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+
+</body>
+</html>
